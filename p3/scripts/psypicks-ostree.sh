@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # name: psypicks
 # description: psypicks_desc
 # icon: psyicon.png
