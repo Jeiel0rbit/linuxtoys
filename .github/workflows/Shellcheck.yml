@@ -1,4 +1,4 @@
-name: ShellCheck
+name: ShellCheck Audit
 
 on:
   push:
@@ -10,12 +10,19 @@ on:
 
 jobs:
   shellcheck:
-    name: ShellCheck Verification
+    name: Shell Script Linter
     runs-on: ubuntu-latest
 
     steps:
-      - name: Code checkout
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@master
+      - name: Install ShellCheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run ShellCheck with security flags
+        run: |
+          find . -type f -name "*.sh" | while read -r file; do
+            echo "🔍 Checking $file"
+            shellcheck -x --severity=style "$file"
+          done
