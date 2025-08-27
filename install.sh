@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # LINUXTOYS QUICK-INSTALLER (POSIX /bin/sh)
 
 echo "================== LINUXTOYS QUICK-INSTALLER ===================="
